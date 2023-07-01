@@ -12,3 +12,19 @@ type UsersEntity {
 type Query {
   getAllUsers: [UsersEntity!]!
 }
+
+type Mutation {
+  login(loginInput: LoginDto!): String!
+  register(registerInput: RegisterDto!): String!
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
+
+input RegisterDto {
+  email: String!
+  password: String!
+  role: String!
+}
