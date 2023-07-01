@@ -8,6 +8,8 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
+import { CategoriesModule } from './categories/categories.module';
+import { TasksModule } from './tasks/tasks.module';
 import * as process from 'process';
 
 @Module({
@@ -29,6 +31,8 @@ import * as process from 'process';
     }),
     UsersModule,
     AuthModule,
+    CategoriesModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],

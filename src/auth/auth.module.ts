@@ -25,11 +25,6 @@ import { BearerStrategy } from './strategies/bearer.strategy';
     }),
     PassportModule,
   ],
-  providers: [
-    AuthResolver,
-    AuthService,
-    UsersService,
-    BearerStrategy,
-  ],
+  providers: [AuthResolver, AuthService, UsersService, BearerStrategy],
 })
 export class AuthModule {}

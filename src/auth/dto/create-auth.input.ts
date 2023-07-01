@@ -6,12 +6,12 @@ export class LoginDto {
   @IsString()
   @IsEmail()
   @IsNotEmpty()
-  @Field()
+  @Field(() => String)
   email: string;
 
   @IsString()
   @IsNotEmpty()
-  @Field()
+  @Field(() => String)
   password: string;
 }
 
@@ -20,15 +20,15 @@ export class RegisterDto {
   @IsString()
   @IsEmail()
   @IsNotEmpty()
-  @Field()
+  @Field(() => String)
   email: string;
 
   @IsString()
   @IsNotEmpty()
-  @Field()
+  @Field(() => String)
   password: string;
 
   @IsString()
-  @Field()
+  @Field(() => String)
   role: string;
 }
