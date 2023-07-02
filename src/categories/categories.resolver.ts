@@ -1,11 +1,5 @@
 import { UseGuards } from '@nestjs/common';
-import {
-  Args,
-  Context,
-  Mutation,
-  Query,
-  Resolver,
-} from '@nestjs/graphql';
+import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { CategoriesService } from './categories.service';
