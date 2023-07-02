@@ -3,8 +3,9 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { CategoriesService } from '../categories/categories.service';
-import { CreateTaskInput, UpdateTaskInput } from './dto';
-import { TaskEntity } from './entities';
+import { CreateTaskInput } from './dto/create-task.input';
+import { UpdateTaskInput } from './dto/update-task.input';
+import { TaskEntity } from './entities/task.entity';
 
 @Injectable()
 export class TasksService {

@@ -10,7 +10,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { CategoriesModule } from './categories/categories.module';
-import { TasksModule } from './tasks';
+import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users';
 
 @Module({

@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoriesService } from '../categories/categories.service';
 import { CategoryEntity } from '../categories/entities/category.entity';
 import { UsersEntity, UsersService } from '../users';
-import { TaskEntity } from './entities';
+import { TaskEntity } from './entities/task.entity';
 import { TasksResolver } from './tasks.resolver';
 import { TasksService } from './tasks.service';
 
