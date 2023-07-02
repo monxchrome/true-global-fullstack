@@ -14,7 +14,10 @@ export class TasksService {
     private categoriesService: CategoriesService,
   ) {}
 
-  async createTask(createTaskInput: CreateTaskInput, categoryId) {
+  async createTask(
+    createTaskInput: CreateTaskInput,
+    categoryId,
+  ): Promise<Partial<TaskEntity>> {
     if (!categoryId) {
       throw new HttpException(
         'Category ID is required',
@@ -39,14 +42,14 @@ export class TasksService {
     return this.tasksRepository.save(newTask);
   }
 
-  async getAllTasks() {
+  async getAllTasks(): Promise<TaskEntity[]> {
     return await this.tasksRepository
       .createQueryBuilder('task')
       .leftJoinAndSelect('task.categories', 'tasks')
       .getMany();
   }
 
-  async getById(taskId: string) {
+  async getById(taskId: string): Promise<TaskEntity> {
     return await this.tasksRepository
       .createQueryBuilder('task')
       .leftJoinAndSelect('task.categories', 'tasks')
@@ -54,7 +57,10 @@ export class TasksService {
       .getOne();
   }
 
-  async updateTask(updateTaskInput: UpdateTaskInput, taskId: string) {
+  async updateTask(
+    updateTaskInput: UpdateTaskInput,
+    taskId: string,
+  ): Promise<TaskEntity | undefined> {
     const task = await this.tasksRepository.findOne({
       where: { id: taskId },
     });
@@ -65,7 +71,7 @@ export class TasksService {
     }
   }
 
-  async deleteTask(taskId: string) {
+  async deleteTask(taskId: string): Promise<void> {
     await this.tasksRepository.delete(taskId);
   }
 }

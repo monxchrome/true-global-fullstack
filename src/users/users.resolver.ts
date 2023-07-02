@@ -12,7 +12,9 @@ export class UsersResolver {
   }
 
   @Query(() => UsersEntity)
-  async getById(@Args('userId', { type: () => String }) userId: string): Promise<UsersEntity> {
+  async getById(
+    @Args('userId', { type: () => String }) userId: string,
+  ): Promise<UsersEntity> {
     return this.usersService.getById(userId);
   }
 }

@@ -48,7 +48,7 @@ type Mutation {
   deleteCategory(categoryId: String!): CategoryEntity!
   createTask(createTaskInput: CreateTaskInput!, categoryId: String!): TaskEntity!
   updateTask(updateTaskInput: UpdateTaskInput!, taskId: String!): TaskEntity!
-  removeTask(taskId: String!): TaskEntity!
+  deleteTask(taskId: String!): TaskEntity!
 }
 
 input LoginDto {

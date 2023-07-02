@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { Auth } from './entities/auth.entity';
 import { LoginDto, RegisterDto } from './dto/create-auth.input';
 import { UsersService } from '../users/users.service';
+import { UsersEntity } from "../users";
 
 @Resolver(() => Auth)
 export class AuthResolver {
@@ -21,13 +22,13 @@ export class AuthResolver {
       throw new Error('ERROR.Check_request_password_param');
     }
 
-    const findUser = await this.usersService.getByEmail(body.email);
+    const findUser: UsersEntity = await this.usersService.getByEmail(body.email);
 
     if (!findUser) {
       throw new Error('Email or password is incorrect');
     }
 
-    const isPasswordValid = await this.authService.compareHash(
+    const isPasswordValid: boolean = await this.authService.compareHash(
       body.password,
       findUser.password,
     );

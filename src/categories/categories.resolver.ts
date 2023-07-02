@@ -30,12 +30,14 @@ export class CategoriesResolver {
   }
 
   @Query(() => [CategoryEntity])
-  getAllCategories() {
+  getAllCategories(): Promise<CategoryEntity[]> {
     return this.categoriesService.getAll();
   }
 
   @Query(() => CategoryEntity)
-  getCategory(@Args('categoryId', { type: () => String }) categoryId: string) {
+  getCategory(
+    @Args('categoryId', { type: () => String }) categoryId: string,
+  ): Promise<CategoryEntity> {
     return this.categoriesService.getById(categoryId);
   }
 
@@ -43,7 +45,7 @@ export class CategoriesResolver {
   updateCategory(
     @Args('categoryId', { type: () => String }) categoryId: string,
     @Args('updateCategoryInput') updateCategoryInput: UpdateCategoryInput,
-  ) {
+  ): Promise<CategoryEntity> {
     return this.categoriesService.updateCategory(
       updateCategoryInput,
       categoryId,
@@ -53,7 +55,7 @@ export class CategoriesResolver {
   @Mutation(() => CategoryEntity)
   async deleteCategory(
     @Args('categoryId', { type: () => String }) categoryId: string,
-  ) {
+  ): Promise<void> {
     return await this.categoriesService.deleteCategory(categoryId);
   }
 }

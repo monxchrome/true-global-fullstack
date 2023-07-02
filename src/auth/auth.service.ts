@@ -17,15 +17,15 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async compareHash(bodyPassword: string, hash: string) {
+  async compareHash(bodyPassword: string, hash: string): Promise<boolean> {
     return bcrypt.compare(bodyPassword, hash);
   }
 
-  async signIn(userId: string) {
+  async signIn(userId: string): Promise<string> {
     return this.jwtService.sign({ id: userId });
   }
 
-  async hashPassword(password: string) {
+  async hashPassword(password: string): Promise<string> {
     return bcrypt.hash(password, +process.env.PASSWORD_SALT);
   }
 

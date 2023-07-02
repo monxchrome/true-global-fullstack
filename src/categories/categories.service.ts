@@ -4,7 +4,7 @@ import { UpdateCategoryInput } from './dto/update-category.input';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CategoryEntity } from './entities/category.entity';
-import { UsersService } from '../users/users.service';
+import { UsersService } from '../users';
 
 @Injectable()
 export class CategoriesService {
@@ -36,14 +36,14 @@ export class CategoriesService {
     return this.categoryRepository.save(newCategory);
   }
 
-  async getAll() {
+  async getAll(): Promise<CategoryEntity[]> {
     return await this.categoryRepository
       .createQueryBuilder('category')
       .leftJoinAndSelect('category.users', 'users')
       .getMany();
   }
 
-  async getById(categoryId: string) {
+  async getById(categoryId: string): Promise<CategoryEntity> {
     return await this.categoryRepository
       .createQueryBuilder('category')
       .leftJoinAndSelect('category.users', 'users')
@@ -54,7 +54,7 @@ export class CategoriesService {
   async updateCategory(
     updateCategoryInput: UpdateCategoryInput,
     categoryId: string,
-  ) {
+  ): Promise<CategoryEntity | undefined> {
     const category = await this.categoryRepository.findOne({
       where: { id: categoryId },
     });
@@ -65,7 +65,7 @@ export class CategoriesService {
     }
   }
 
-  async deleteCategory(categoryId: string) {
+  async deleteCategory(categoryId: string): Promise<void> {
     await this.categoryRepository.delete(categoryId);
   }
 }
