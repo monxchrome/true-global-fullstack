@@ -1,12 +1,12 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  Index,
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+
 import { CategoryEntity } from '../../categories/entities/category.entity';
 
 @Entity('tasks')

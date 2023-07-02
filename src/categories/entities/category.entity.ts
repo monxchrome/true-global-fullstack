@@ -6,8 +6,9 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { UsersEntity } from '../../users/entities/users.entity';
+
 import { TaskEntity } from '../../tasks/entities/task.entity';
+import { UsersEntity } from '../../users';
 
 @Entity('categories')
 @ObjectType()

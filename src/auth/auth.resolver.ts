@@ -1,9 +1,9 @@
-import { Resolver, Mutation, Args } from '@nestjs/graphql';
+import { Args, Mutation, Resolver } from '@nestjs/graphql';
+
+import { UsersEntity, UsersService } from '../users';
 import { AuthService } from './auth.service';
-import { Auth } from './entities/auth.entity';
 import { LoginDto, RegisterDto } from './dto/create-auth.input';
-import { UsersService } from '../users/users.service';
-import { UsersEntity } from "../users";
+import { Auth } from './entities/auth.entity';
 
 @Resolver(() => Auth)
 export class AuthResolver {
@@ -22,7 +22,9 @@ export class AuthResolver {
       throw new Error('ERROR.Check_request_password_param');
     }
 
-    const findUser: UsersEntity = await this.usersService.getByEmail(body.email);
+    const findUser: UsersEntity = await this.usersService.getByEmail(
+      body.email,
+    );
 
     if (!findUser) {
       throw new Error('Email or password is incorrect');

@@ -1,8 +1,9 @@
-import { Resolver, Query, Mutation, Args, Int, ID } from '@nestjs/graphql';
-import { TasksService } from './tasks.service';
-import { TaskEntity } from './entities/task.entity';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+
 import { CreateTaskInput } from './dto/create-task.input';
 import { UpdateTaskInput } from './dto/update-task.input';
+import { TaskEntity } from './entities/task.entity';
+import { TasksService } from './tasks.service';
 
 @Resolver(() => TaskEntity)
 export class TasksResolver {

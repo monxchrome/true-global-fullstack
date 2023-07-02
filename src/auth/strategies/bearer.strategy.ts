@@ -4,9 +4,9 @@ import { PassportStrategy } from '@nestjs/passport';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Strategy } from 'passport-local';
 import { Repository } from 'typeorm';
+
+import { UsersEntity, UsersService } from '../../users';
 import { AuthService } from '../auth.service';
-import { UsersService } from '../../users/users.service';
-import { UsersEntity } from '../../users/entities/users.entity';
 
 @Injectable()
 export class BearerStrategy extends PassportStrategy(Strategy) {

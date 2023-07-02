@@ -1,6 +1,7 @@
-import { CreateTaskInput } from './create-task.input';
-import { InputType, Field, PartialType } from '@nestjs/graphql';
+import { Field, InputType, PartialType } from '@nestjs/graphql';
 import { IsDate, IsOptional, IsString, MaxLength } from 'class-validator';
+
+import { CreateTaskInput } from './create-task.input';
 
 @InputType()
 export class UpdateTaskInput extends PartialType(CreateTaskInput) {

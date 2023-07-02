@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { CategoriesService } from './categories.service';
-import { CategoriesResolver } from './categories.resolver';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { CategoryEntity } from './entities/category.entity';
-import { UsersService } from '../users';
-import { UsersEntity } from '../users';
 import { JwtService } from '@nestjs/jwt';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+import { UsersEntity, UsersService } from '../users';
+import { CategoriesResolver } from './categories.resolver';
+import { CategoriesService } from './categories.service';
+import { CategoryEntity } from './entities/category.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([CategoryEntity, UsersEntity])],

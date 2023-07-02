@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { TasksService } from './tasks.service';
-import { TasksResolver } from './tasks.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TaskEntity } from './entities/task.entity';
-import { CategoryEntity } from '../categories/entities/category.entity';
+
 import { CategoriesService } from '../categories/categories.service';
-import { UsersService } from '../users';
-import { UsersEntity } from '../users';
+import { CategoryEntity } from '../categories/entities/category.entity';
+import { UsersEntity, UsersService } from '../users';
+import { TaskEntity } from './entities/task.entity';
+import { TasksResolver } from './tasks.resolver';
+import { TasksService } from './tasks.service';
 
 @Module({
   imports: [

@@ -1,10 +1,11 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
+import { CategoriesService } from '../categories/categories.service';
 import { CreateTaskInput } from './dto/create-task.input';
 import { UpdateTaskInput } from './dto/update-task.input';
-import { InjectRepository } from '@nestjs/typeorm';
 import { TaskEntity } from './entities/task.entity';
-import { Repository } from 'typeorm';
-import { CategoriesService } from '../categories/categories.service';
 
 @Injectable()
 export class TasksService {

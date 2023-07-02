@@ -1,18 +1,17 @@
+import { UseGuards } from '@nestjs/common';
 import {
-  Resolver,
-  Query,
-  Mutation,
   Args,
-  Int,
   Context,
-  GqlExecutionContext,
+  Mutation,
+  Query,
+  Resolver,
 } from '@nestjs/graphql';
+
+import { AuthGuard } from '../auth/guards/auth.guard';
 import { CategoriesService } from './categories.service';
-import { CategoryEntity } from './entities/category.entity';
 import { CreateCategoryInput } from './dto/create-category.input';
 import { UpdateCategoryInput } from './dto/update-category.input';
-import { AuthGuard } from '../auth/guards/auth.guard';
-import { UseGuards } from '@nestjs/common';
+import { CategoryEntity } from './entities/category.entity';
 
 @Resolver(() => CategoryEntity)
 export class CategoriesResolver {
