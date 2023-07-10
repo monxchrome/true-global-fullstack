@@ -8,6 +8,7 @@ import { UpdateCategoryInput } from './dto/update-category.input';
 import { CategoryEntity } from './entities/category.entity';
 
 @Resolver(() => CategoryEntity)
+
 export class CategoriesResolver {
   constructor(private readonly categoriesService: CategoriesService) {}
 

@@ -7,9 +7,11 @@ import { Repository } from 'typeorm';
 
 import { UsersEntity, UsersService } from '../users';
 import { RegisterDto } from './dto/create-auth.input';
+import { TokenDto } from './dto/token.dto';
 
 @Injectable()
 export class AuthService {
+  private readonly refreshSecret: string = process.env.REFRESH_SECRET;
   constructor(
     @InjectRepository(UsersEntity)
     private userRepository: Repository<UsersEntity>,
@@ -21,8 +23,11 @@ export class AuthService {
     return bcrypt.compare(bodyPassword, hash);
   }
 
-  async signIn(userId: string): Promise<string> {
-    return this.jwtService.sign({ id: userId });
+  async signIn(userId: string): Promise<TokenDto> {
+    const access = this.jwtService.sign({ id: userId });
+    const refresh = this.jwtService.sign({ id: userId }, { secret: this.refreshSecret });
+
+    return { access, refresh };
   }
 
   async hashPassword(password: string): Promise<string> {

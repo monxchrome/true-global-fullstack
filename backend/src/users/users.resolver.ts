@@ -4,6 +4,7 @@ import { UsersEntity } from './entities';
 import { UsersService } from './users.service';
 
 @Resolver(() => UsersEntity)
+
 export class UsersResolver {
   constructor(private usersService: UsersService) {}
 

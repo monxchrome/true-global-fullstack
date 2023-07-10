@@ -3,6 +3,7 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { UsersEntity, UsersService } from '../users';
 import { AuthService } from './auth.service';
 import { LoginDto, RegisterDto } from './dto/create-auth.input';
+import { TokenDto } from './dto/token.dto';
 import { Auth } from './entities/auth.entity';
 
 @Resolver(() => Auth)
@@ -12,8 +13,8 @@ export class AuthResolver {
     private readonly usersService: UsersService,
   ) {}
 
-  @Mutation(() => String)
-  async login(@Args('loginInput') body: LoginDto): Promise<string> {
+  @Mutation(() => TokenDto)
+  async login(@Args('loginInput') body: LoginDto): Promise<TokenDto> {
     if (!body.email) {
       throw new Error('ERROR.Check_request_email_param');
     }
@@ -36,15 +37,17 @@ export class AuthResolver {
     );
 
     if (isPasswordValid) {
-      const token = await this.authService.signIn(findUser.id.toString());
-      return token;
+      const tokens = await this.authService.signIn(findUser.id.toString());
+      return tokens;
     }
 
     throw new Error('Email or password is incorrect');
   }
 
-  @Mutation(() => String)
-  async register(@Args('registerInput') body: RegisterDto): Promise<string> {
+  @Mutation(() => UsersEntity)
+  async register(
+    @Args('registerInput') body: RegisterDto,
+  ): Promise<UsersEntity> {
     let findUser;
 
     try {
@@ -64,8 +67,8 @@ export class AuthResolver {
     });
 
     if (user) {
-      const token = await this.authService.signIn(user.id.toString());
-      return token;
+      await this.authService.signIn(user.id.toString());
+      return user;
     }
 
     throw new Error('ERROR.Failed_to_register_user');
