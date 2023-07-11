@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from './styles/login.module.sass'
 import moon from "../../static/moon.png";
 import frontmountains from "../../static/frontmountains.png";

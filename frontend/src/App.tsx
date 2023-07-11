@@ -5,12 +5,14 @@ import MainLayout from "./layouts/MainLayout";
 import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/LoginPage";
 import UsersPage from "./pages/UsersPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
     <div className="App">
         <Routes>
-          <Route path={'/login'} element={<LoginPage/>}/>
+          <Route path={'/login'} element={<LoginPage />} />
+          <Route path={'/register'} element={<RegisterPage />} />
 
           <Route path={'/'} element={<MainLayout />}>
 
