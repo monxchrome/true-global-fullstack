@@ -1,11 +1,11 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import {
-  Column,
+  Column, CreateDateColumn,
   Entity,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+  PrimaryGeneratedColumn
+} from "typeorm";
 
 import { TaskEntity } from '../../tasks/entities/task.entity';
 import { UsersEntity } from '../../users';
@@ -21,11 +21,15 @@ export class CategoryEntity {
   @Column()
   name: string;
 
+  @Field(() => Date, { nullable: true })
+  @CreateDateColumn()
+  startDate?: Date;
+
   @Field(() => UsersEntity, { nullable: true })
   @ManyToOne(() => UsersEntity, (users) => users.categories, { nullable: true })
   users: UsersEntity;
 
-  @Field(() => [TaskEntity])
+  @Field(() => [TaskEntity], { nullable: true })
   @OneToMany(() => TaskEntity, (task) => task.categories)
-  tasks: TaskEntity[];
+  tasks?: TaskEntity[];
 }

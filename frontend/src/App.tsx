@@ -6,6 +6,7 @@ import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/LoginPage";
 import UsersPage from "./pages/UsersPage";
 import RegisterPage from "./pages/RegisterPage";
+import CategoriesPage from "./pages/CategoriesPage";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
             <Route path={'/'} element={<MainPage />} />
 
             <Route path={'/users'} element={<UsersPage />} />
+
+            <Route path={'/categories'} element={<CategoriesPage />} />
 
           </Route>
         </Routes>

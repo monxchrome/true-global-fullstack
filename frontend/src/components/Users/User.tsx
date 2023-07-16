@@ -10,9 +10,7 @@ const User = ({user}: { user: any }) => {
   }, [])
 
   return (
-    <div className={styles.Father}
-         data-aos="fade-right"
-        >
+    <div className={styles.Father} data-aos="fade-right">
       <div className={styles.Border}>
         <h4 className={styles.Text}>{id}</h4>
       </div>

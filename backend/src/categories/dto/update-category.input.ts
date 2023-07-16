@@ -1,5 +1,5 @@
 import { Field, InputType, PartialType } from '@nestjs/graphql';
-import { IsOptional, IsString } from 'class-validator';
+import { IsDate, IsOptional, IsString } from 'class-validator';
 
 import { CreateCategoryInput } from './create-category.input';
 
@@ -9,4 +9,9 @@ export class UpdateCategoryInput extends PartialType(CreateCategoryInput) {
   @IsOptional()
   @Field(() => String)
   name: string;
+
+  @IsDate()
+  @IsOptional()
+  @Field(() => Date, { nullable: true })
+  startDate?: Date;
 }

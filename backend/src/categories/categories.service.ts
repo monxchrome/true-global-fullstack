@@ -32,6 +32,7 @@ export class CategoriesService {
     const newCategory: Partial<CategoryEntity> = {
       name: createCategoryInput.name,
       users: user,
+      startDate: createCategoryInput.startDate,
     };
 
     return this.categoryRepository.save(newCategory);
@@ -41,6 +42,7 @@ export class CategoriesService {
     return await this.categoryRepository
       .createQueryBuilder('category')
       .leftJoinAndSelect('category.users', 'users')
+      .leftJoinAndSelect('category.tasks', 'tasks')
       .getMany();
   }
 

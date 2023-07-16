@@ -11,6 +11,7 @@ import { useFormik } from "formik";
 import { LoginValidationSchema } from "./validators/login.validator";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../mutations/user";
+import axios from "axios";
 
 const Login = () => {
   const [loginUser] = useMutation(LOGIN_USER)

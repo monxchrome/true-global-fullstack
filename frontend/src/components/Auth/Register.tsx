@@ -39,7 +39,6 @@ const Register = () => {
       }
     },
   });
-  console.log(formik.values.role)
 
   const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
     border: "1px solid rgba(0, 250, 255, 0.3)",

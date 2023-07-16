@@ -6,7 +6,6 @@ import { TaskEntity } from './entities/task.entity';
 import { TasksService } from './tasks.service';
 
 @Resolver(() => TaskEntity)
-
 export class TasksResolver {
   constructor(private readonly tasksService: TasksService) {}
 

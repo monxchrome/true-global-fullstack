@@ -25,7 +25,10 @@ export class AuthService {
 
   async signIn(userId: string): Promise<TokenDto> {
     const access = this.jwtService.sign({ id: userId });
-    const refresh = this.jwtService.sign({ id: userId }, { secret: this.refreshSecret });
+    const refresh = this.jwtService.sign(
+      { id: userId },
+      { secret: this.refreshSecret },
+    );
 
     return { access, refresh };
   }
