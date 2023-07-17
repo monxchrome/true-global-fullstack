@@ -1,16 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import styles from './styles/category.module.sass'
 import moment from "moment";
 import { styled } from "@mui/material/styles";
-import { Button, ButtonProps } from "@mui/material";
+import { Backdrop, Button, ButtonProps, Modal } from "@mui/material";
+import EditModal from "./EditModal";
 
 const Category = ({category}: { category: any }) => {
-  const {name, startDate, tasks} = category
+  const [openEdit, setOpenEdit] = useState(false);
+
+  const {id, name, startDate, tasks} = category
 
   const formattedDate = moment(startDate).format('DD.MM.YYYY')
 
   const tasksCount = Array.isArray(tasks) ? tasks.length : '0';
+
+  const handleOpenEdit = () => setOpenEdit(true);
+  const handleCloseEdit = () => setOpenEdit(false);
 
   const EditButton = styled(Button)<ButtonProps>(({ theme }) => ({
     border: "1px solid rgb(4 108 0 / 50%);",
@@ -62,11 +68,29 @@ const Category = ({category}: { category: any }) => {
         <h4 className={styles.Text}>{formattedDate}</h4>
       </div>
 
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={openEdit}
+        onClose={handleCloseEdit}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+        className={styles.ModalFather}
+      >
+        <EditModal onClose={handleCloseEdit} categoryId={id} />
+      </Modal>
+
       <div className={styles.Wrap}>
         <EditButton
           variant="contained"
           size="large"
-          className={styles.Button}>EDIT</EditButton>
+          className={styles.Button}
+          onClick={handleOpenEdit}>EDIT</EditButton>
         <DeleteButton
           variant="contained"
           size="large"

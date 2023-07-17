@@ -1,11 +1,11 @@
 import React from "react";
 import styles from './styles/modal-category.module.sass'
 import { useMutation } from "@apollo/client";
-import { CREATE_CATEGORY } from "../../query/category";
 import { useFormik } from "formik";
 import { Button, ButtonProps, TextField } from "@mui/material";
 import { CreateCategoryValidationSchema } from "./validators/create-category.validator";
 import { styled } from "@mui/material/styles";
+import { CREATE_CATEGORY } from "../../mutations/category";
 
 const ModalCategory = ({onClose}: {onClose: any}) => {
   const [createCategory] = useMutation(CREATE_CATEGORY)
@@ -65,8 +65,7 @@ const ModalCategory = ({onClose}: {onClose: any}) => {
   return (
     <div className={styles.Modal}>
       <div>
-        <h2
-          className={styles.ModalText}>
+        <h2 className={styles.ModalText}>
           Create category
         </h2>
       </div>
