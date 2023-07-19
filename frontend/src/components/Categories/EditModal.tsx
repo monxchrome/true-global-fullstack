@@ -15,7 +15,7 @@ const EditModal = ({onClose, categoryId}: {onClose: any, categoryId: any}) => {
     border: "1px solid rgb(4 108 0 / 50%);",
     backgroundColor: "rgb(4 108 0 / 100%);",
     color: "#1b011e",
-    width: "10vw",
+    width: "7vw",
     height: "5vh",
     borderRadius: "100px",
     '&:hover': {
@@ -31,7 +31,7 @@ const EditModal = ({onClose, categoryId}: {onClose: any, categoryId: any}) => {
     border: "1px solid rgb(108 0 0 / 50%);",
     backgroundColor: "rgb(108 0 0 / 100%);",
     color: "#1b011e",
-    width: "10vw",
+    width: "7vw",
     height: "5vh",
     borderRadius: "100px",
     '&:hover': {
@@ -77,29 +77,33 @@ const EditModal = ({onClose, categoryId}: {onClose: any, categoryId: any}) => {
         <div className={styles.Input}>
           <form onSubmit={formik.handleSubmit}>
 
-            <TextField
-              fullWidth
-              id="name"
-              name="name"
-              label="Name"
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.name && Boolean(formik.errors.name)}
-              helperText={formik.touched.name && formik.errors.name}
-            />
+            <div>
+              <TextField
+                fullWidth
+                id="name"
+                name="name"
+                label="Name"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.name && Boolean(formik.errors.name)}
+                helperText={formik.touched.name && formik.errors.name}
+              />
+            </div>
 
-            <TextField
-              fullWidth
-              id="startDate"
-              name="startDate"
-              label="Start Date"
-              value={formik.values.startDate}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.startDate && Boolean(formik.errors.startDate)}
-              helperText={formik.touched.startDate && formik.errors.startDate}
-            />
+            <div className={styles.Form}>
+              <TextField
+                fullWidth
+                id="startDate"
+                name="startDate"
+                label="Start Date"
+                value={formik.values.startDate}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.startDate && Boolean(formik.errors.startDate)}
+                helperText={formik.touched.startDate && formik.errors.startDate}
+              />
+            </div>
 
             <div className={styles.Wrap}>
               <div>

@@ -5,9 +5,11 @@ import moment from "moment";
 import { styled } from "@mui/material/styles";
 import { Backdrop, Button, ButtonProps, Modal } from "@mui/material";
 import EditModal from "./EditModal";
+import DeleteModal from "./DeleteModal";
 
 const Category = ({category}: { category: any }) => {
   const [openEdit, setOpenEdit] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
 
   const {id, name, startDate, tasks} = category
 
@@ -17,6 +19,8 @@ const Category = ({category}: { category: any }) => {
 
   const handleOpenEdit = () => setOpenEdit(true);
   const handleCloseEdit = () => setOpenEdit(false);
+  const handleOpenDelete = () => setOpenDelete(true);
+  const handleCloseDelete = () => setOpenDelete(false);
 
   const EditButton = styled(Button)<ButtonProps>(({ theme }) => ({
     border: "1px solid rgb(4 108 0 / 50%);",
@@ -85,6 +89,23 @@ const Category = ({category}: { category: any }) => {
         <EditModal onClose={handleCloseEdit} categoryId={id} />
       </Modal>
 
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={openDelete}
+        onClose={handleCloseDelete}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+        className={styles.ModalFather}
+      >
+        <DeleteModal onClose={handleCloseDelete} categoryId={id} />
+      </Modal>
+
       <div className={styles.Wrap}>
         <EditButton
           variant="contained"
@@ -94,6 +115,7 @@ const Category = ({category}: { category: any }) => {
         <DeleteButton
           variant="contained"
           size="large"
+          onClick={handleOpenDelete}
           className={styles.Button}>DELETE</DeleteButton>
       </div>
     </div>

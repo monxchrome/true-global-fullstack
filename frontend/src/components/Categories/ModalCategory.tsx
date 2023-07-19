@@ -14,7 +14,7 @@ const ModalCategory = ({onClose}: {onClose: any}) => {
     border: "1px solid rgb(4 108 0 / 50%);",
     backgroundColor: "rgb(4 108 0 / 100%);",
     color: "#1b011e",
-    width: "10vw",
+    width: "7vw",
     height: "5vh",
     borderRadius: "100px",
     '&:hover': {
@@ -30,7 +30,7 @@ const ModalCategory = ({onClose}: {onClose: any}) => {
     border: "1px solid rgb(108 0 0 / 50%);",
     backgroundColor: "rgb(108 0 0 / 100%);",
     color: "#1b011e",
-    width: "10vw",
+    width: "7vw",
     height: "5vh",
     borderRadius: "100px",
     '&:hover': {
