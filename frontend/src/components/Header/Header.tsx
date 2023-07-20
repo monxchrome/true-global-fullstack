@@ -37,13 +37,19 @@ const Header = () => {
         </div>
         <div className={styles.Buttons}>
           <div>
-            <ColorButton variant="outlined" size="large">Users</ColorButton>
+            <NavLink to={'users'}>
+              <ColorButton variant="outlined" size="large">Users</ColorButton>
+            </NavLink>
           </div>
           <div>
-            <ColorButton variant="outlined" size="large">Categories</ColorButton>
+            <NavLink to={'categories'}>
+              <ColorButton variant="outlined" size="large">Categories</ColorButton>
+            </NavLink>
           </div>
           <div>
-            <ColorButton variant="outlined" size="large">Tasks</ColorButton>
+            <NavLink to={'tasks'}>
+              <ColorButton variant="outlined" size="large">Tasks</ColorButton>
+            </NavLink>
           </div>
           <div>
             <NavLink to={'login'}>

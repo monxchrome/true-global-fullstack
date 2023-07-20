@@ -1,0 +1,66 @@
+.section
+  position: relative
+  height: 100vh
+  padding: 100px
+  display: flex
+  justify-content: center
+  align-items: center
+
+section::before
+  content: ''
+  position: absolute
+  bottom: 0
+  width: 100%
+  height: 100px
+  background: linear-gradient(to top, #1c0320, transparent)
+  z-index: 1000
+
+section img
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+.Moon
+  mix-blend-mode: screen
+
+.Front
+  z-index: 10
+
+.DescDiv
+  background: #1b011e
+
+.TextDesc
+  margin: 0
+  color: white
+  font-family: 'Poppins', sans-serif
+  font-size: 5rem
+  z-index: 9
+
+.Father
+  background: #1b011e
+  width: 100%
+  padding-bottom: 10vh
+  display: flex
+  justify-content: center
+  padding-top: 10vh
+
+.Border
+  width: 90vw
+  background: #1b011e
+  border-radius: 16px
+  border: 1px solid rgba(100, 4, 110, 0.65)
+
+.Button
+  background: #1b011e
+  display: flex
+  justify-content: flex-end
+  padding-right: 10vw
+  padding-top: 2vh
+
+.ModalFather
+  padding-top: 30vh
+  display: flex
+  justify-content: center

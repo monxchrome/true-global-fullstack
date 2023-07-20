@@ -57,7 +57,7 @@ const DeleteModal = ({onClose, categoryId}: {onClose: any, categoryId: any}) => 
       </div>
 
       <div>
-        <h4 className={styles.ModalText}>
+        <h4 className={styles.ModalDesc}>
           Do you want to delete this category?
         </h4>
       </div>

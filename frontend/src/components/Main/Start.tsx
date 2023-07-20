@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "@mui/material/styles";
 import { Button, ButtonProps } from "@mui/material";
 import styles from './styles/start.module.sass'
+import { NavLink } from "react-router-dom";
 
 const Start = () => {
 
@@ -23,9 +24,9 @@ const Start = () => {
 
   return (
     <div className={styles.Father}>
-      <div>
+      <NavLink to={'login'}>
         <ColorButton variant="contained" size="large">Get Started</ColorButton>
-      </div>
+      </NavLink>
     </div>
   );
 };

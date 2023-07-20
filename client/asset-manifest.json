@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.3a001e29.css",
-    "main.js": "/static/js/main.2da03092.js",
+    "main.css": "/static/css/main.44e0b0a6.css",
+    "main.js": "/static/js/main.3bcb3dae.js",
     "static/media/frontmountains.png": "/static/media/frontmountains.97dd6621f6257a7ffb93.png",
     "static/media/backmountains.png": "/static/media/backmountains.ae2c896a911f82e8419f.png",
     "static/media/moon.png": "/static/media/moon.f9f2b5f25e55d65720a8.png",
     "static/media/stars.png": "/static/media/stars.22879336bba1ab7475fa.png",
     "static/media/firewatch.webp": "/static/media/firewatch.b20c464ea7e51c246008.webp",
     "index.html": "/index.html",
-    "main.3a001e29.css.map": "/static/css/main.3a001e29.css.map",
-    "main.2da03092.js.map": "/static/js/main.2da03092.js.map"
+    "main.44e0b0a6.css.map": "/static/css/main.44e0b0a6.css.map",
+    "main.3bcb3dae.js.map": "/static/js/main.3bcb3dae.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a001e29.css",
-    "static/js/main.2da03092.js"
+    "static/css/main.44e0b0a6.css",
+    "static/js/main.3bcb3dae.js"
   ]
 }

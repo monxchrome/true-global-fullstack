@@ -7,6 +7,7 @@ import LoginPage from "./pages/LoginPage";
 import UsersPage from "./pages/UsersPage";
 import RegisterPage from "./pages/RegisterPage";
 import CategoriesPage from "./pages/CategoriesPage";
+import TasksPage from "./pages/TasksPage";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
             <Route path={'/users'} element={<UsersPage />} />
 
             <Route path={'/categories'} element={<CategoriesPage />} />
+
+            <Route path={'/tasks'} element={<TasksPage />} />
 
           </Route>
         </Routes>
