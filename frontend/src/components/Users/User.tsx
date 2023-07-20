@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
-import styles from './styles/user.module.sass'
-import AOS from "aos";
+import AOS from 'aos';
+import React, { useEffect } from 'react';
 
-const User = ({user}: { user: any }) => {
-  const {id, email, role} = user
+import styles from './styles/user.module.sass';
+
+const User = ({ user }: { user: any }) => {
+  const { id, email, role } = user;
 
   useEffect(() => {
     AOS.init();
-  }, [])
+  }, []);
 
   return (
     <div className={styles.Father} data-aos="fade-right">

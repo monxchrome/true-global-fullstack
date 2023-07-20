@@ -1,4 +1,4 @@
-import * as yup from "yup";
+import * as yup from 'yup';
 
 export const UpdateTaskValidationSchema = yup.object({
   name: yup
@@ -9,6 +9,5 @@ export const UpdateTaskValidationSchema = yup.object({
     .string()
     .min(5, 'Description should be of minimum 5 characters length')
     .required('Description is required'),
-  endDate: yup
-    .date(),
+  endDate: yup.date(),
 });
